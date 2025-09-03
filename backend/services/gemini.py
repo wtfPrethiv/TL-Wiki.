@@ -5,7 +5,7 @@ class Gemini:
     @staticmethod
     
     def ai_summarize(wiki_content):
-        GEMINI_API_KEY = "YOUR_API_KEY_HERE"
+        GEMINI_API_KEY = "AIzaSyA6Cp5XEjka65SzuljCfLKAMVuPfvK9yxk"
         
         client = genai.Client(api_key=GEMINI_API_KEY)
         summary = {}
@@ -30,5 +30,12 @@ class Gemini:
             )
             
             summary[topic] = response
+            
+        try:
+            summary_text = response.candidates[0].content.parts[0].text
+        except Exception:
+            summary_text = str(response)  # fallback if structure changes
 
-        return json.dumps(summary, indent=4)
+ 
+
+        return summary

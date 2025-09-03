@@ -31,4 +31,4 @@ class Scraper:
                 if text:
                     results[current_topic].append(text)
 
-        return json.dumps(results, indent=4)
+        return results
