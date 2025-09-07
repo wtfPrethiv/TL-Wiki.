@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: monospace; /* Brutalist vibe */
+  font-family: monospace;
 }
 
 body {
@@ -27,36 +27,30 @@ body {
 .hidden {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 
 .header {
   font-size: 5.7rem;           
   font-weight: bold;
-  margin: 40px 0 50px 30px;
+  margin: 40px auto 50px;
   text-align: center;  
-  display:flex;                  
-  justify-content:center;       
-  align-items:baseline;          
-  font-weight:bold;
-  margin:40px auto 50px;         
-  line-height:1;
-  gap:.2rem;  
+  display: flex;                  
+  justify-content: center;       
+  align-items: baseline;          
+  line-height: 1;
+  gap: 0.2rem;  
 }
 
 .wiki-w {
   font-size: 80px;        
   font-weight: normal;
   line-height: 1;
-  color: #000;   
-}
-
-.header .wiki-w{
-  display:block;                 
-  height:1em;               
-  margin:0 .12em;  
-  transform: translateY(.201em); 
-  margin-right: 0px;
-  margin-left: 0px;
+  color: #000;
+  display: block;                 
+  height: 1em;               
+  margin: 0 0.12em;  
+  transform: translateY(0.201em); 
 }
 
 .header .suffix {
@@ -69,7 +63,6 @@ body {
   border: 2.4px solid #000;
   width: 575px;
   margin: 20% auto 0 auto;
-  
 }
 
 .search-box input {
@@ -89,18 +82,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Footer */
-.footer {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
 /* Results Page */
 .results-container {
   display: flex;
@@ -112,7 +93,7 @@ body {
 .sidebar {
   flex: 1;
   padding: 1rem;
-  border-right: 3px solid #000; /* brutalistic thick border */
+  border-right: 3px solid #000;
 }
 
 .sidebar h3 {
@@ -141,12 +122,8 @@ body {
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
-.wiki-w {
-  height: 1em;        
-  width: auto;     
-  vertical-align: baseline;
-}
 
+/* Footer */
 .footer {
   position: absolute;
   bottom: 20px;
@@ -167,75 +144,7 @@ body {
   text-align: right;
 }
 
-.header-p2 {
-  font-size: 5.7rem;           
-  font-weight: bold;
-  margin: 40px 0 50px 30px;
-  text-align: center;  
-  display:flex;                  
-  justify-content:right;       
-  align-items:baseline;          
-  font-weight:bold;
-  margin:40px auto 50px;         
-  line-height:1;
-  gap:.2rem; 
-}
-
-.header-p2 .wiki-w{
-  display:block;                 
-  height:1em;               
-  margin:0 .12em;  
-  transform: translateY(.25em); 
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
-.header-p2 .suffix {
-  margin-left: -0.15em;
-}
-
-
-.header-p2 {
-  font-weight: bold;
-  display: flex;
-  align-items: baseline;
-  margin: 40px auto 50px;
-  line-height: 1;
-  gap: 0.1rem;
-}
-
-.header-p2 .tl {
-  font-size: 1.8rem;      
-  position: relative;
-  bottom: -0.9em;        
-}
-
-.header-p2 .pie {
-  font-size: 3rem;
-  font-weight: normal ;       
-}
-
-
-.header-p2 .wiki-w,
-.header-p2 .suffix {
-  font-size: 4.5rem;      
-  position: relative;
-  top: -0.3em;          
-}
-.header-p2 {
-  font-weight: bold;
-  display: flex;
-  justify-content: right;
-  align-items: baseline;
-  margin: 10px auto 30px;   /* reduced top margin so it sits higher */
-  line-height: 1;
-  gap: 0.2rem;
-}
-.header-p2 {
-  position: relative;
-  top: -15px;   
-}
-
+/* Second Header Style */
 .header-p2 {
   font-weight: bold;
   display: flex;
@@ -243,7 +152,7 @@ body {
   align-items: baseline;
   margin: 10px auto 30px;
   line-height: 1;
-  gap: 0rem;        /* remove extra gap */
+  gap: 0rem;
   position: relative;
   top: -15px;   
 }
@@ -253,9 +162,68 @@ body {
   position: relative;
   bottom: -0.6em;        
   margin-right: 0.298em; 
-  font-weight: 100;  /* add small gap before π */
+  font-weight: 100;
 }
 
-.header-p2 .suffix{
+.header-p2 .pie {
+  font-size: 3rem;
+  font-weight: normal;       
+}
+
+.header-p2 .wiki-w {
+  font-size: 4.5rem;      
+  position: relative;
+  top: -0.3em;
+  display: block;                 
+  height: 1em;               
+  margin: 0 0.12em;  
+  transform: translateY(0.25em); 
+}
+
+.header-p2 .suffix {
   font-size: 50px;
+  position: relative;
+  top: -0.3em;
+  margin-left: -0.15em;
+}
+
+/* Timeout Box */
+#timeout-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border: 2px solid black;
+  background-color: white;
+  font-family: monospace;
+  font-size: 14px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transition: opacity 0.4s ease;
+}
+
+/* Tooltip */
+.wiki-tooltip {
+  display: none;
+  position: absolute;
+  top: 27%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+  padding: 8px 12px;
+  background: white;
+  color: #000;
+  border: 0.7px solid #000;
+  border-radius: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.wiki-w:hover + .wiki-tooltip {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

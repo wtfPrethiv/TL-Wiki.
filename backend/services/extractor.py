@@ -1,7 +1,3 @@
-from fastapi import APIRouter
-from backend.services import Gemini, Scraper, TranslatorService
-from backend.models import WikiInput
-
 class Extractor:
     def __init__(self, gemini_response):
         self.data = gemini_response
@@ -32,22 +28,3 @@ class Extractor:
                 print(f"Skipping {section} due to error: {e}")
 
         return extracted
-
-router = APIRouter()
-
-@router.post("/summarize")
-def summarize(topic: WikiInput):
-    scraper = Scraper()
-    
-    wiki_content = scraper.scrape(topic.topic)
-    
-    trans_zh = TranslatorService(source='en', target='zh-CN')
-    content_zh = trans_zh.translate(wiki_content)
-    
-    gemini = Gemini()
-    summarized_content = gemini.ai_summarize(content_zh)
-    
-    extractor = Extractor(summarized_content)
-    clean_summary = extractor.extract()
-    
-    return {"summary": clean_summary}
